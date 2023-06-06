@@ -1,0 +1,71 @@
+<!doctype html>
+ 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>2023/06/06 16:16:01 - Runstant</title>
+    <meta name="description" content="思いたったらすぐ開発. プログラミングに革命を..." />
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.0.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>*, *:before, *:after {
+  box-sizing: border-box; 
+}
+html {
+  font-size: 13px;
+}
+body {
+  font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  color: #444;
+  background-color: hsl(0, 0%, 96%);
+}
+h1 {
+  font-size: 1.8rem;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="text-2xl">条件は...</div>
+    <div>
+      <div class="mx-auto text-center">
+        <div class="text-2xl">記号</div>
+        <div id="kigo" class="text-9xl"></div>
+      </div>
+      <!--<div class="mx-auto text-center">
+        <div class="text-2xl">漢字</div>
+        <div id="kanji" class="text-5xl"></div>
+      </div>-->
+
+    </div>
+    <div class="text-center">
+      <button class="btn btn-neutral" id="run">ルーレット！</button>
+      <button class="btn btn-neutral" id="stop" hidden>Stop</button>
+    </div>
+    <script>const gebi = document.getElementById.bind(document);
+
+let interval;
+gebi("run").onclick = () => {
+  const $kigo = gebi("kigo");
+  const $kanji = gebi("kanji");
+  
+  gebi("run").hidden = true;
+  gebi("stop").hidden = false;
+
+  interval = setInterval(()=>{
+    $kigo.textContent = ["!","?","「」","."][Math.floor(4* Math.random())];
+    //$kanji.textContent = [""][Math.floor(4* Math.random())];
+  }, 10);
+};
+gebi("stop").onclick = () => {
+  gebi("run").hidden = false;
+  gebi("stop").hidden = true;
+  clearInterval(interval);
+};</script>
+  </body>
+</html>
+
