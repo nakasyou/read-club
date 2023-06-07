@@ -42,18 +42,20 @@
         const gebi = document.getElementById.bind(document);
          let interval;
          gebi("run").onclick = () => {
+           gebi("run").style.display = "none";
            const $10 = gebi("10");
            const $1 = gebi("1");
-           
+
            gebi("run").hidden = true;
            gebi("stop").hidden = false;
-         
+
            interval = setInterval(()=>{
              $10.textContent = Math.floor(10 * Math.random());
              $1.textContent = Math.floor(10 * Math.random());
            }, 10);
          };
          gebi("stop").onclick = () => {
+           gebi("run").style.display = "inline-flex";
            gebi("run").hidden = false;
            gebi("stop").hidden = true;
            clearInterval(interval);
